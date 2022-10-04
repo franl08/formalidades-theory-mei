@@ -186,3 +186,26 @@ O problema SMT (*Satisfability Modulo Theories*) é a variação do SAT para a l
 ## Modelos de Domínio
 
 Um modelo de domínio é um modelo concetual de um sistema que descreve as diversas entidades involvidas no sistema e nas suas relações.
+
+![image Modelo de Domínio](images/modeldomain.png)
+
+- **Entidades** são representadas por caixas;
+- **Relações** entre entidades são denotadas por arcos com:
+  - O nome da relação/associação;
+  - A direção de leitura (indicada por uma seta);
+  - A sua multiplicidade (anotada na ponta dos arcos).
+- **Anotações** com restrições indicadas, de modo informal, em caixas que podem aparecer no diagrama.
+
+### Formalizar um Modelo de Domínio
+
+- Começa-se por estabelecer a linguagem lógica que iremos utilizar, isto é, o vocabulário da linguagem:
+  - Um **predicado unário para cada entidade** (irão funcionar como os "tipos" da entidade não domínio não-tipado);
+  - Um **predicado para cada associação**, exceto especializações (que serão codificados em fórmulas que estabelecem o tipo de especialização);
+  - Uma **constante** para cada entidade pertencente a um tipo enumerado.
+- Em seguida, escrevemos o conjunto de fórmulas que irão descrever o sistema. Estas fórmulas são de uma natureza diferente:
+  - Codificação da relação de especialização (pode ser um subconjunto ou membros da relação, dependendo dos casos);
+  - Partição do universo de discurso com os tipos das entidades;
+  - Disjunção das entidades de especialização;
+  - Tipar as associações;
+  - Restrições de multiplicidade em associações;
+  - Restrições anotadas de forma informal.
