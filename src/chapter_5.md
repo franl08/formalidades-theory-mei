@@ -89,7 +89,9 @@ sig Entry {
 
 #### Restrições de Multiplicidade
 
-$$fact \{ R\ in\ A\ m \rightarrow m\ B}$$
+```
+fact { R in A m -> m B}
+```
 
 - A multiplicidade por *default* é *set*;
 - A multiplicidade alvo pode, alternativamente, especificada na declaração;
