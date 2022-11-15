@@ -1,0 +1,369 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Teórica 03 - Teóricas de MFES</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Teórica 01</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Teórica 02</a></li><li class="chapter-item expanded "><a href="chapter_3.html" class="active"><strong aria-hidden="true">3.</strong> Teórica 03</a></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">4.</strong> Teórica 04</a></li><li class="chapter-item expanded "><a href="chapter_5.html"><strong aria-hidden="true">5.</strong> Teórica 05</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Teóricas de MFES</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="teórica-03"><a class="header" href="#teórica-03">Teórica 03</a></h1>
+<h2 id="lógica-de-primeira-ordem-clássica"><a class="header" href="#lógica-de-primeira-ordem-clássica">Lógica de Primeira Ordem Clássica</a></h2>
+<p>É uma linguagem mais rica que a lógica proposicional. O seu léxico é composto não só pelos símbolos \( \wedge \), \( \vee \), \( \neg \) e \( \rightarrow \), como pelos símbolos \( \exists \) e \( \forall \) para &quot;existe&quot; e &quot;para todos&quot;, além de diversos símbolos para representar variáveis, constantes, funções e relações.</p>
+<p>Tem 2 principais componentes:</p>
+<ul>
+<li><strong>Termos</strong>: denotam objetos sobre os quais estamos a falar;</li>
+<li><strong>Fórmulas</strong>: denotam valores verdadeiros.</li>
+</ul>
+<p>O alfabeto da lógica de primeira ordem é organizado nas seguintes categorias:</p>
+<ul>
+<li><strong>Variáveis</strong>: \( x, y, z, ... \in \mathcal{X} \) (elementos arbitrários num dado domínio);</li>
+<li><strong>Constantes</strong>: \( a, b, c, ... \in \mathcal{C} \) (elementos específicos num dado domínio);</li>
+<li><strong>Funções</strong>: \( f, g, h, ... \in \mathcal{F} \) (todas as funções têm uma aridade fixa, \( ar(f) \));</li>
+<li><strong>Predicados</strong>: \( P, Q, R, ... \in \mathcal{P} \) (todos os predicados têm uma aridade fixa, \( ar(P) \));</li>
+<li><strong>Conetores Lógicos</strong>: \( \bot, \top, \wedge, \vee, \neg, \rightarrow, \forall, \exists \);</li>
+<li><strong>Símbolos Auxiliares</strong>: &quot;.&quot;, &quot;(&quot; e &quot;)&quot;.</li>
+</ul>
+<h2 id="modelação-com-fol-first-order-logic"><a class="header" href="#modelação-com-fol-first-order-logic">Modelação com FOL (<em>First Order Logic</em>)</a></h2>
+<h3 id="nem-todos-os-pássaros-voam"><a class="header" href="#nem-todos-os-pássaros-voam">&quot;Nem todos os pássaros voam&quot;</a></h3>
+<p>Vamos assumir 2 predicados unários:</p>
+<pre><code>B(x) - x é um pássaro;
+F(x) - x pode voar.
+</code></pre>
+<p>Assim, podemos passar a frase para:</p>
+<p>\[ \neg(\forall_x. B(x)\rightarrow F(x)) \]</p>
+<p>Ou:</p>
+<p>\[ \exists_x.B(x) \wedge \neg F(x) \]</p>
+<h3 id="todas-as-mães-são-mais-velhas-que-os-filhos-e-o-john-e-o-peter-têm-a-mesma-avó-materna"><a class="header" href="#todas-as-mães-são-mais-velhas-que-os-filhos-e-o-john-e-o-peter-têm-a-mesma-avó-materna">&quot;Todas as mães são mais velhas que os filhos&quot; e &quot;O John e o Peter têm a mesma avó materna&quot;</a></h3>
+<p>Usando as constantes \( j \) para John, \( p \) para Peter e os seguintes predicados:</p>
+<pre><code>mother(x, y) - x é mãe de y
+older(x, y) - x é mais velhor que y
+</code></pre>
+<p>Podemos escrever as expressões anteriores:</p>
+<p>\[ \forall_x. \forall_y. mother(x, y)\rightarrow older(x, y) \]
+\[ \forall_{x, y, u, v}. mother(x, y) \wedge mother(y, j) \wedge mother(u, v) \wedge mother(v, p)
+\rightarrow x = u \]</p>
+<p>De forma a simplificar a expressão, podemos utilizar uma função ao invés de uma relação para o caso da mãe. Assim, seja \( m(y) \) mãe de \( y \):</p>
+<p>\[ \forall_x.older(m(x), x) \]
+\[ m(m(j)) = m(m(p)) \]</p>
+<h2 id="variáveis-livres-e-vinculadas"><a class="header" href="#variáveis-livres-e-vinculadas">Variáveis Livres e Vinculadas</a></h2>
+<ul>
+<li>As <strong>variáveis livres</strong> de uma fórmula \( \phi \) são as variáveis que ocorram em \( \phi \) e que não contêm quantificadores. \( FV(\phi) \) denota o conjunto de variáveis livres que ocorrem em \( \phi \);</li>
+<li>As <strong>variáveis vinculadas</strong> de uma fórmula \( \phi \) são as variáveis que ocorrem \( \phi \) e que contêm quantificadores. \( BV(\phi) \) denota o conjunto de variáveis vinculadas presentes em \( \phi \);</li>
+<li>Uma dada variável pode conter ocorrências livres e vinculadas na mesma fórmula;</li>
+<li>Uma fórmula diz-se fechada se não tiver qualquer variável livre;</li>
+<li>Se \( FV(\phi) = {x_1, ..., x_n} \) então:
+<ul>
+<li>o seu <em>universal closure</em> é \( \forall_{x_{1}}, \cdots, \forall_{x_{n}}.\phi \)</li>
+<li>o seu <em>existential closure</em> é \( \exists_{x{<em>1}},\cdots, \exists</em>{x_{n}}.\phi \)</li>
+</ul>
+</li>
+</ul>
+<h2 id="substituição"><a class="header" href="#substituição">Substituição</a></h2>
+<ul>
+<li>Definimos \( u[t/x] \) como o termo obtido por substituir todas as ocorrências da variável \( x \) em \( u \) por \( t \);</li>
+<li>Definimos \( \phi[t/x] \) como a fórmula obtida por substituir todas as ocorrências <strong>livres</strong> da variável \( x \) em \( \phi \) pot \( t \).</li>
+</ul>
+<p>Deve-se ter bastante cuidado a mexer com substituições, pois, facilmente, podem obter-se resultados inesperados.</p>
+<h2 id="semântica"><a class="header" href="#semântica">Semântica</a></h2>
+<h3 id="v-structure"><a class="header" href="#v-structure"><em>V-Structure</em></a></h3>
+<p>Uma \( \mathcal{V} \)-<em>Structure</em> \( \mathcal{M} \) é um par \( \mathcal{M} = (D, I) \) em que \( D \) é um conjunto não vazio chamado <strong>domínio de interpretação</strong> e \( I \) é uma <strong>função de interpretação</strong> que designa constantes, funções e predicados em D para símbolos de \( \mathcal{V} \):</p>
+<ul>
+<li>Para cada símbolo constante \( c \in \mathcal{C} \), a interpretação de \( c \) é a constante \( I(c) \in D \);</li>
+<li>Para cada \( f \in \mathcal{F} \), a interpretação de \( f \) é a função \( I(f): D^{ar(f)}\rightarrow D \);</li>
+<li>Para cada \( P \in \mathcal{P} \), a interpretação de \( \mathcal{P} \) é a função \( I(P): D^{ar(P)} \rightarrow {0,1} \). Em particular, símbolos de predicados \( 0-ários \)
+são interpretados como valores verdadeiros.</li>
+</ul>
+<p>A isto é ainda dado o nome de <em>models</em> de \( \mathcal{V} \).</p>
+<h3 id="assignment"><a class="header" href="#assignment"><em>Assignment</em></a></h3>
+<p>Um <em>assignment</em> para um domínio \( D \) é uma função \( \alpha:\mathcal{X}\rightarrow D \).</p>
+<p>Denota-se \( \alpha[x\mapsto a] \) o <em>assignment</em> que mapeia \( x \) para \( a \) e qualquer outra variável \( y \) para \( \alpha(y) \).</p>
+<h3 id="validade-e-satisfabilidade"><a class="header" href="#validade-e-satisfabilidade">Validade e Satisfabilidade</a></h3>
+<p>Uma fórmula \( \phi \) diz-se:</p>
+<ul>
+<li><strong>válida</strong> sse \( \mathcal{M}, \alpha \models \phi \) se verifica para toda a estrutura \( \mathcal{M} \) e dá <em>assign</em> de \( \alpha \). Uma fórmula válida é chamada de <strong>tautologia</strong>. Escrevemos \( \models \phi \);</li>
+<li><strong>satisfazível</strong> sse existe alguma estrutura \( \mathcal{M} \) e algum <em>assignment</em> de \( \alpha \) tais que dado \( \mathcal{M} \), verifica-se \( \alpha \models \phi \);</li>
+<li><strong>insatisfazível</strong> sse não é satisfazível. A isto chama-se <strong>contradição</strong>;</li>
+<li><strong>refutável</strong> sse não é válida.</li>
+</ul>
+<h3 id="consistência"><a class="header" href="#consistência">Consistência</a></h3>
+<p>Um conjunto \( \Gamma \) é consistente ou satisfazível sse existe um modelo \( \mathcal{M} \) e um <em>assignment</em> \( \alpha \) tais que \( \mathcal{M}, \alpha \models \phi \) verifica-se para todo o \( \phi \in \Gamma \).</p>
+<h3 id="substituição-1"><a class="header" href="#substituição-1">Substituição</a></h3>
+<ul>
+<li>Uma fórmula \( \psi \) diz-se subfórmula de \( \phi \) se ocorrer sintaticamente em \( \phi \);</li>
+<li>Uma fórmula \( \psi \) é uma subfórmula estrita de \( \phi \) se \( \psi \) é uma subfórmula de \( \phi \) e \( \psi \neq \phi \)</li>
+</ul>
+<h2 id="decidibilidade"><a class="header" href="#decidibilidade">Decidibilidade</a></h2>
+<p><strong>Problemas de Decisão</strong>:</p>
+<ul>
+<li><strong>Problema da Validade</strong>: &quot;\( \phi \) é válido?&quot;;</li>
+<li><strong>Problema da Satisfabilidade</strong>: &quot;\( \phi \) é satisfazível?&quot;;</li>
+<li><strong>Problema da Consequência</strong>: &quot;\( \psi \) é uma consequência de \( \phi \)?&quot;;</li>
+<li><strong>Problema da Equivalência</strong>: &quot;\( \phi \) e \( \psi \) são equivalentes?&quot;</li>
+</ul>
+<p>Estes são, de certa forma, variações do mesmo problema:</p>
+<ul>
+<li>\( \phi \) é válido <strong>sse</strong> \( \neg \phi \) é não satisfazível;</li>
+<li>\( \phi \models \psi \) <strong>sse</strong> \( \neg(\phi\rightarrow \psi) \) é insatisfazível;</li>
+<li>\( \phi \equiv \psi \) <strong>sse</strong> \( \phi \models \psi \) e \( \psi \models \phi \);</li>
+<li>\( \phi \) é satisfazível <strong>sse</strong> \( \neg \phi \) é não válido.</li>
+</ul>
+<p>Uma solução para um problema de decidibilidade é um programa que recebe instâncias do problema como <em>input</em> e termina <strong>sempre</strong> produzindo um <em>output</em> &quot;sim&quot; ou &quot;não&quot; correto.</p>
+<h3 id="semi-decibilidade"><a class="header" href="#semi-decibilidade">Semi-decibilidade</a></h3>
+<p>Um problema de decisão é semi-decidível se existe um procedimento que, dado um input:</p>
+<ul>
+<li>Pára e responde &quot;sim&quot; <strong>sse</strong> &quot;sim&quot; é a resposta correta;</li>
+<li>Pára e responde &quot;não&quot; se &quot;não&quot; for a resposta correta;</li>
+<li>Não pára e &quot;não&quot; é a resposta correta&quot;.</li>
+</ul>
+<p>Ao contrário de um problema de decisão, este procedimente apenas pára, de forma garantida, no caso da resposta correta ser &quot;sim&quot;.</p>
+<h2 id="formas-normais"><a class="header" href="#formas-normais">Formas Normais</a></h2>
+<p>Uma fórmula de primeira ordem está numa <strong>NNF</strong> (<em>negation normal form</em>) se o conetivo da implicação não é utilizado e a negação apenas é aplicada a fórmulas atómicas.</p>
+<p>Uma fórmula está na <em>prenex form</em> se estiver na forma \( \mathcal{Q}_1x_1.\mathcal{Q}_2x_2.\cdots.\mathcal{Q}_nx_n.\psi \) em que cada \( Q_i \) é um quantificador (\( \forall \) ou \( \exists \)) e \( \psi \) é uma fórmula livre de quantificadores.</p>
+<h2 id="herbrandskolem-normal-forms"><a class="header" href="#herbrandskolem-normal-forms"><em>Herbrand</em>/<em>Skolem</em> <em>Normal Forms</em></a></h2>
+<p>Seja \( \phi \) uma fórmula de primeira oredem na forma <em>prenex normal</em>:</p>
+<ul>
+<li>A <em>Herbrandization</em> de \( \phi \) (\( \phi^H \)) é a fórmula existencial de \( \phi \) que se obtém após aplicar de forma repetida e exaustiva a seguinte transformação:</li>
+</ul>
+<p>\[ \exists_{x_1},\cdots,x_n.\forall_y.\psi \rightsquigarrow \exists_{x_1},\cdots,x_n.\psi[f(x_1,\cdots,x_n)/y] \]</p>
+<ul>
+<li>A <em>Skolemization</em> de \( \phi \) (\( \phi^S \)) é a fórmula universal obtida a partir da aplicação repetida da transformação:</li>
+</ul>
+<p>\[ \forall{x_1},\cdots,x_n.\exists_y.\psi \rightsquigarrow \forall_{x_1},\cdots,x_n.\psi[f(x_1,\cdots,x_n)/y] \]</p>
+<p>Uma fórmula \( \phi \) e a sua <em>Herbrandization/Skolemization</em> não são logicamente equivalentes.</p>
+<ul>
+<li>\( \phi \) é válida <strong>sse</strong> a sua <em>Herbrandization</em> \( \phi^H \) é válida;</li>
+<li>\( \phi \) é satisfazível <strong>sse</strong> a sua <em>Skolemization</em> \( \phi^S \) é satisfazível.</li>
+</ul>
+<h2 id="fol-com-igualdade"><a class="header" href="#fol-com-igualdade">FOL com igualdade</a></h2>
+<p>Esta abordagem considera a igualdade como um símbolo lógico de interpretação fixa.</p>
+<p>O símbolo de igualdade é interpretado como a relação de igualdade no domínio da interpretação. Assim, tem-se uma estrutura \( \mathcal{M}=(D, I) \) e um <em>assignment</em> \( alpha: \mathcal{X}\rightarrow D \), tal que:</p>
+<p>\[ \mathcal{M}, \alpha \models t_1 = t_2\ iff\ \alpha_{\mathcal{M}}(t_1)\ and\ \alpha_{\mathcal{M}}(t_2)\ são\ o\ mesmo\ elemento\ de\ D \]</p>
+<h2 id="many-sorted-fol"><a class="header" href="#many-sorted-fol"><em>Many-sorted</em> FOL</a></h2>
+<ul>
+<li>
+<p>Permite a coexistência de diferentes domínios de elementos na mesma <em>framework</em>.</p>
+</li>
+<li>
+<p>É composta por conjunto de <em>sorts</em>, um conjunto de símbolos de funções e um conjunto de símbolos de predicados.</p>
+<ul>
+<li>Cada símbolo de função \( f \) tem associado um tipo da forma \( S_1 \times \cdots \times S_{ar(f)} \rightarrow S \), em que S são <em>sorts</em>;</li>
+<li>Cada símbolo de predicado \( P \) tem associado um tipo da forma \( S_1 \times \cdots \times S_{ar(P)} \);</li>
+<li>Cada variável tem a si associado um <em>sort</em>.</li>
+</ul>
+</li>
+<li>
+<p>A formação dos termos e das fórmulas é feito respeitando os <em>sorts</em>;</p>
+</li>
+<li>
+<p>O domínio do discurso de cada estrutura de um vocabulário <em>many-sorted</em> é fragmentado em diferentes <em>subsets</em>, um para cada <em>sort</em>;</p>
+</li>
+<li>
+<p>A noção de <em>assignment</em> e de estrutura para um vocabulário <em>many-sorted</em> e a sua interpretação de termos e fórmulas estão definidas da fórmula expectável.</p>
+</li>
+</ul>
+<h2 id="smt-solvers"><a class="header" href="#smt-solvers"><em>SMT Solvers</em></a></h2>
+<p>O problema SMT (<em>Satisfability Modulo Theories</em>) é a variação do SAT para a lógica de primeira ordem com a interpretação dos símbolos restrita a um conjunto de teorias específicas.</p>
+<h2 id="modelos-de-domínio"><a class="header" href="#modelos-de-domínio">Modelos de Domínio</a></h2>
+<p>Um modelo de domínio é um modelo concetual de um sistema que descreve as diversas entidades involvidas no sistema e nas suas relações.</p>
+<p><img src="images/modeldomain.png" alt="image Modelo de Domínio" /></p>
+<ul>
+<li><strong>Entidades</strong> são representadas por caixas;</li>
+<li><strong>Relações</strong> entre entidades são denotadas por arcos com:
+<ul>
+<li>O nome da relação/associação;</li>
+<li>A direção de leitura (indicada por uma seta);</li>
+<li>A sua multiplicidade (anotada na ponta dos arcos).</li>
+</ul>
+</li>
+<li><strong>Anotações</strong> com restrições indicadas, de modo informal, em caixas que podem aparecer no diagrama.</li>
+</ul>
+<h3 id="formalizar-um-modelo-de-domínio"><a class="header" href="#formalizar-um-modelo-de-domínio">Formalizar um Modelo de Domínio</a></h3>
+<ul>
+<li>Começa-se por estabelecer a linguagem lógica que iremos utilizar, isto é, o vocabulário da linguagem:
+<ul>
+<li>Um <strong>predicado unário para cada entidade</strong> (irão funcionar como os &quot;tipos&quot; da entidade não domínio não-tipado);</li>
+<li>Um <strong>predicado para cada associação</strong>, exceto especializações (que serão codificados em fórmulas que estabelecem o tipo de especialização);</li>
+<li>Uma <strong>constante</strong> para cada entidade pertencente a um tipo enumerado.</li>
+</ul>
+</li>
+<li>Em seguida, escrevemos o conjunto de fórmulas que irão descrever o sistema. Estas fórmulas são de uma natureza diferente:
+<ul>
+<li>Codificação da relação de especialização (pode ser um subconjunto ou membros da relação, dependendo dos casos);</li>
+<li>Partição do universo de discurso com os tipos das entidades;</li>
+<li>Disjunção das entidades de especialização;</li>
+<li>Tipar as associações;</li>
+<li>Restrições de multiplicidade em associações;</li>
+<li>Restrições anotadas de forma informal.</li>
+</ul>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter_2.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="chapter_4.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter_2.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="chapter_4.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

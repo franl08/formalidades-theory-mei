@@ -1,0 +1,767 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Teóricas de MFES</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Teórica 01</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Teórica 02</a></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">3.</strong> Teórica 03</a></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">4.</strong> Teórica 04</a></li><li class="chapter-item expanded "><a href="chapter_5.html"><strong aria-hidden="true">5.</strong> Teórica 05</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Teóricas de MFES</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="teórica-01"><a class="header" href="#teórica-01">Teórica 01</a></h1>
+<p>Métodos formais são úteis para:</p>
+<ul>
+<li>Grandes sistemas de <em>software</em> (distribuídos);</li>
+<li>Sistemas críticos;</li>
+<li>Segurança de informação;</li>
+<li><em>Blockchain</em> e aplicações financeiras.</li>
+</ul>
+<h2 id="problema-central-dos-métodos-formais"><a class="header" href="#problema-central-dos-métodos-formais">Problema Central dos Métodos Formais</a></h2>
+<p><strong>Parte 1.</strong> Validação do Modelo:</p>
+<ul>
+<li>Nível de especificação;</li>
+<li>Utilizado para a construção e raciocínio de modelos.</li>
+</ul>
+<p><strong>Parte 2.</strong> Conexão entre Especificação e Implementação:</p>
+<ul>
+<li>Partir da Especificação para a Implementação utilizando Métodos Formais;</li>
+<li>Construir o Método Formal com base na Implementação (uma espécie de engenharia reversa que permite verificar a existência de erros desconhecidos).</li>
+</ul>
+<h2 id="propriedades-dos-métodos-formais"><a class="header" href="#propriedades-dos-métodos-formais">Propriedades dos Métodos Formais</a></h2>
+<ul>
+<li><em>Safety</em>: não ocorre nada de mau no programa;</li>
+<li><em>Liveness</em>: eventualmente, algo de bom irá acontecer no programa;</li>
+<li><em>Security</em>: existe segurança a nível da informação;</li>
+<li><em>Time Properties</em>: se ocorre \( x \), irá ocorrer \( y \) dentro de \( z \) unidades temporais.</li>
+</ul>
+<h2 id="avaliação-da-uc"><a class="header" href="#avaliação-da-uc">Avaliação da UC</a></h2>
+<ul>
+<li>
+<p>4 Exercícios de Avaliação (20%):</p>
+<ul>
+<li>Anunciados no fim da aula teórica para serem feitos até sexta-feira dessa semana. Poderão ser minitestes para realizar no final da tarde da sexta-feira dessa semana;</li>
+<li>De acordo com a matéria teórica que está a ser abordada no momento.</li>
+</ul>
+</li>
+<li>
+<p>1 Teste Escrito (80%):</p>
+<ul>
+<li>Sem nota mínima.</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="teórica-02"><a class="header" href="#teórica-02">Teórica 02</a></h1>
+<h2 id="lógica-proposicional-e-sat-solvers"><a class="header" href="#lógica-proposicional-e-sat-solvers">Lógica Proposicional e SAT Solvers</a></h2>
+<p>Lógica formal consiste em:</p>
+<ul>
+<li>Linguagem lógica, na qual são expressas frases bem formadas. Consite em:
+<ul>
+<li>Símbolos lógicos de interpretação fixa;</li>
+<li>Símbolos não-lógicos em que as interpretações podem variar.</li>
+</ul>
+</li>
+<li>Semântica que define a interpretação dos símbolos e expressões da linguagem;</li>
+<li>Sistema de Prova que é uma <em>framework</em> de regras para derivações válidas.</li>
+</ul>
+<h2 id="o-que-é-um-sat"><a class="header" href="#o-que-é-um-sat">O que é um SAT?</a></h2>
+<p><strong>SAT (<em>Boolean Satisfiability Problem</em>)</strong>:</p>
+<p>Encontra um conjunto de variáveis proposicionais para os quais à fórmula lógica é avaliada como uma fórmula verdadeira, ou prova que não existe um conjunto de variáveis capazes de tornar a fórmula verdadeira.</p>
+<p>É um problema de decisão NP-completo.</p>
+<ul>
+<li>Geralmente, os <em>SAT solvers</em> lidam com fórmulas CNF (<em>conjunctive normal form</em>):
+<ul>
+<li><em><strong>literal</strong></em>: variável proposicional ou a sua negação: \( A, \neg{A}, B, \neg{B}, ... \);</li>
+<li><em><strong>clause</strong></em>: disjunção de literais: \( (A \vee \neg{B} \vee C) \);</li>
+<li><em><strong>conjunctive normal form</strong></em>: conjunção de cláusulas: \( (A \vee \neg{B} \vee C) \wedge (B \vee \neg{A}) \wedge \neg{C} \).</li>
+</ul>
+</li>
+</ul>
+<h2 id="lógica-proposicional-clássica"><a class="header" href="#lógica-proposicional-clássica">Lógica Proposicional Clássica</a></h2>
+<h3 id="válida-vs-satisfazível-vs-contradição"><a class="header" href="#válida-vs-satisfazível-vs-contradição">Válida <em>vs</em> Satisfazível <em>vs</em> Contradição</a></h3>
+<p>Uma dada fórmula \( F \) é:</p>
+<ul>
+<li><strong>válida</strong> sse é verdadeira para todos os conjuntos de variáveis. Escrevemos \( \models F \). É chamada <strong>tautologia</strong>;</li>
+<li><strong>satisfazível</strong> sse é verdadeira para, pelo menos, um conjunto de variáveis;</li>
+<li><strong>insatisfazível</strong> sse é falsa para qualquer conjunto de variáveis. É chamada <strong>contradição</strong>;</li>
+<li><strong>refutável</strong> sse não é válida.</li>
+</ul>
+<p><strong>Proposição</strong>:</p>
+<p>\[ F\  is\ valid\ \ \  iff\ \ \  \neg{F}\ is\ unsatisfiable \]</p>
+<h3 id="consequência-e-equivalência"><a class="header" href="#consequência-e-equivalência">Consequência e Equivalência</a></h3>
+<ul>
+<li>\( F \models G \) sse para cada proposição \( A \), <code>if</code> \( A \models F \) <code>then</code> \( A \models G \). Diz-se que \( G \) é <strong>consequência</strong> de \( F \);</li>
+<li>\( F \equiv G \) sse \( F \models G \) e \( G \models F \). Dizemos que \( F \) e \( G \) são equivalentes;</li>
+<li>Seja \( \Gamma={F_1, F_2, F_3, ...} \) um dado conjunto de fórmulas:
+<ul>
+<li>\( A \models T\ iff\ A \models F_i \) para cada fórmula \( F_i \) em \( \Gamma \). Dizemos que \( A \) <em>models</em> \( \Gamma \);</li>
+<li>\( \Gamma\models G\ iff\ A\models G \rightarrow A \) para cada \( A \). Dizemos que \( G \) é consequência de \( \Gamma \).</li>
+</ul>
+</li>
+</ul>
+<h3 id="consistência"><a class="header" href="#consistência">Consistência</a></h3>
+<p>Sendo \( \Gamma = {F_1, F_2, F_3,...} \) um conjunto de fórmulas:</p>
+<ul>
+<li>\( \Gamma \) é consistente ou satisfazível sse existir um conjunto que modela \( \Gamma \);</li>
+<li>Dizemos que \( \Gamma \) é inconsistente ou insatisfazível sse \( \Gamma \) não for consistente. Denotamos isto com \( \Gamma \models \perp \).</li>
+</ul>
+<h3 id="substituição"><a class="header" href="#substituição">Substituição</a></h3>
+<ul>
+<li>A fórmula \( G \) é uma subfórmula da fórmula \( F \) se ocorrer sintaticamente de \( F \);</li>
+<li>A fórmula \( G \) é uma fórmula estrita de \( F \) se \( G \) for uma subfórmula de \( F \) e \( G \neq F \).</li>
+</ul>
+<h3 id="decidibilidade"><a class="header" href="#decidibilidade">Decidibilidade</a></h3>
+<p><strong>Problemas de Decibilidade</strong>:</p>
+<ul>
+<li><strong>Problema da Validade</strong>: &quot;\( F \) é válido?&quot;;</li>
+<li><strong>Problema da Satisfabilidade</strong>: &quot;\( F \) é satisfazível?&quot;;</li>
+<li><strong>Problema da Consequência</strong>: &quot;Será \( G \) uma consequência de \( F \)?&quot;;</li>
+<li><strong>Problema da Equivalência</strong>: &quot;Serão \( F \) e \( G \) equivalentes?&quot;.</li>
+</ul>
+<p>Um algoritmo capaz de resolver um destes problemas é capaz de resolver todos os outros.</p>
+<p>Um exemplo disto é a construção de uma tabela de verdade, no entanto, este algoritmo é extremamente ineficiente. Tem uma complexidade temporal exponencial: \( O(2^n) \).</p>
+<p>Ou seja, se \( F \) tiver \( n \) fórmulas atómicas, a tabela de verdade terá \( 2^n \) linhas.</p>
+<h3 id="complexidade"><a class="header" href="#complexidade">Complexidade</a></h3>
+<ul>
+<li>Existem diversas técnicas e algoritmos para a resolução de SATs que apresentam uma melhor performance, em média.</li>
+<li>Qualquer algoritmo que resolva um SAT é, no pior dos casos, exponencial no número de variáveis</li>
+</ul>
+<h2 id="algoritmos-de-sat-solving"><a class="header" href="#algoritmos-de-sat-solving">Algoritmos de SAT <em>solving</em></a></h2>
+<ul>
+<li>Geralmente, recebem as fórmulas num formato sintático específico.
+<ul>
+<li>Assim, o primeiro passo, normalmente, é passar a fórmula original para este formato preservando a sua satisfazibilidade.</li>
+</ul>
+</li>
+</ul>
+<h3 id="fórmulas-normais"><a class="header" href="#fórmulas-normais">Fórmulas Normais</a></h3>
+<p>Geralmente, os <em>SAT Solvers</em> recebem os <em>inputs</em> como CNFs (<em>conjunctive normal forms</em>).</p>
+<p>De notar, que uma fórmula é um NNF (<em>negation normal form</em>) se os únicos conetores utilizados forem \( \neg \), \( \vee \) e \( \wedge \), sendo que a negação só deve aparecer nos literais.</p>
+<p>Para transformar uma fórmula em NFF ou CNF devem-se ir aplicando as derivações lógicas, tendo cuidado para não alterar a satisfazibilidade da fórmula original. Este algoritmo, embora seja simples, no pior caso irá aumentar de forma exponencial o tamanho da fórmula.</p>
+<h4 id="definitional-cnf"><a class="header" href="#definitional-cnf"><em>Definitional CNF</em></a></h4>
+<p>Duas fórmulas \( F \) e \( F' \) são equisatisfazíveis quando \( F \) é satisfazível sse \( F' \) é satisfazível.</p>
+<p>Qualquer fórmula podem ser transformada numa fórmula equisatisfazível CNF com um aumento linear do tamanho da fórmula. Para isso, devem-se acrescentar <em>n</em> novas variáveis booleanas, em que <em>n</em> corresponde ao número de conetores lógicos na fórmula. Esta transformação é feita através do <em>Tseiten's encoding</em>.</p>
+<p>A esta transformação é chamado de <em>definitional CNF</em>, visto que é feita, únicamente, com base na introdução de novos símbolos proposicionais que funcionam como subfórmulas da fórmula original.</p>
+<h3 id="tseitens-encoding"><a class="header" href="#tseitens-encoding"><em>Tseiten's Encoding</em></a></h3>
+<ol>
+<li>Introduz uma nova variável para cada subfórmula composta;</li>
+<li>Atribui uma variável a cada subfórmula;</li>
+<li>Coloca as <em>local constraints</em> em CNF;</li>
+<li>Faz uma conjunção entre as <em>local constraints</em> e a variável &quot;raíz&quot;.</li>
+</ol>
+<ul>
+<li>Existem ainda diversos métodos de otimização deste processo, de forma a reduzir o tamanho da fórmula resultante e o número de variáveis adicionais.</li>
+</ul>
+<h3 id="algoritmos-de-resolução-de-sats"><a class="header" href="#algoritmos-de-resolução-de-sats">Algoritmos de resolução de SATs</a></h3>
+<p>A grande maioria pode ser classificada em 2 grandes grupos:</p>
+<ul>
+<li>Baseados numa <em><strong>stochastic local search</strong></em>:
+<ul>
+<li>o <em>solver</em> escolhe um grupo de valores para testar, se o resultado for falso, começa a alterar os valores com base numa heurística.</li>
+</ul>
+</li>
+<li>Baseados numa <em><strong>DPLL framework</strong></em>:
+<ul>
+<li>otimização ao DPLL que correspondem a dar <em>backtrack search</em> através do espaço entre possíveis grupos de valores.</li>
+</ul>
+</li>
+</ul>
+<p>Em geral, os baseados em DPLL são melhores em grande parte dos casos.</p>
+<h3 id="estado-de-uma-cláusula-numa-proposição"><a class="header" href="#estado-de-uma-cláusula-numa-proposição">Estado de uma cláusula numa proposição</a></h3>
+<ul>
+<li><strong>Satisfeita</strong>: um ou mais dos seus literais foram satisfeitos;</li>
+<li><strong>Em Conflito</strong>: se todos os seus literais foram atribuídos, mas não satisfeitos;</li>
+<li><em><strong>Unit</strong></em>: Não é satisfeito e todos os seus literais, exceto 1, foram atribuídos;</li>
+<li><strong>Não Resolvido</strong>: Nos outros casos.</li>
+</ul>
+<h3 id="unit-propogation-boolean-constraint-propagation"><a class="header" href="#unit-propogation-boolean-constraint-propagation"><em>Unit Propogation (Boolean Constraint Propagation)</em></a></h3>
+<ul>
+<li><em><strong>Unit Clause Rule</strong></em>: Dada uma <em>unit clause</em>, o seu único literal não atribuído deve ter atribuído o valor 1 para a sua cláusula ser satisfeita.</li>
+<li>À aplicação iterativa desta regra dá-se o nome de <em>Unit Propagation</em>. </li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="teórica-03"><a class="header" href="#teórica-03">Teórica 03</a></h1>
+<h2 id="lógica-de-primeira-ordem-clássica"><a class="header" href="#lógica-de-primeira-ordem-clássica">Lógica de Primeira Ordem Clássica</a></h2>
+<p>É uma linguagem mais rica que a lógica proposicional. O seu léxico é composto não só pelos símbolos \( \wedge \), \( \vee \), \( \neg \) e \( \rightarrow \), como pelos símbolos \( \exists \) e \( \forall \) para &quot;existe&quot; e &quot;para todos&quot;, além de diversos símbolos para representar variáveis, constantes, funções e relações.</p>
+<p>Tem 2 principais componentes:</p>
+<ul>
+<li><strong>Termos</strong>: denotam objetos sobre os quais estamos a falar;</li>
+<li><strong>Fórmulas</strong>: denotam valores verdadeiros.</li>
+</ul>
+<p>O alfabeto da lógica de primeira ordem é organizado nas seguintes categorias:</p>
+<ul>
+<li><strong>Variáveis</strong>: \( x, y, z, ... \in \mathcal{X} \) (elementos arbitrários num dado domínio);</li>
+<li><strong>Constantes</strong>: \( a, b, c, ... \in \mathcal{C} \) (elementos específicos num dado domínio);</li>
+<li><strong>Funções</strong>: \( f, g, h, ... \in \mathcal{F} \) (todas as funções têm uma aridade fixa, \( ar(f) \));</li>
+<li><strong>Predicados</strong>: \( P, Q, R, ... \in \mathcal{P} \) (todos os predicados têm uma aridade fixa, \( ar(P) \));</li>
+<li><strong>Conetores Lógicos</strong>: \( \bot, \top, \wedge, \vee, \neg, \rightarrow, \forall, \exists \);</li>
+<li><strong>Símbolos Auxiliares</strong>: &quot;.&quot;, &quot;(&quot; e &quot;)&quot;.</li>
+</ul>
+<h2 id="modelação-com-fol-first-order-logic"><a class="header" href="#modelação-com-fol-first-order-logic">Modelação com FOL (<em>First Order Logic</em>)</a></h2>
+<h3 id="nem-todos-os-pássaros-voam"><a class="header" href="#nem-todos-os-pássaros-voam">&quot;Nem todos os pássaros voam&quot;</a></h3>
+<p>Vamos assumir 2 predicados unários:</p>
+<pre><code>B(x) - x é um pássaro;
+F(x) - x pode voar.
+</code></pre>
+<p>Assim, podemos passar a frase para:</p>
+<p>\[ \neg(\forall_x. B(x)\rightarrow F(x)) \]</p>
+<p>Ou:</p>
+<p>\[ \exists_x.B(x) \wedge \neg F(x) \]</p>
+<h3 id="todas-as-mães-são-mais-velhas-que-os-filhos-e-o-john-e-o-peter-têm-a-mesma-avó-materna"><a class="header" href="#todas-as-mães-são-mais-velhas-que-os-filhos-e-o-john-e-o-peter-têm-a-mesma-avó-materna">&quot;Todas as mães são mais velhas que os filhos&quot; e &quot;O John e o Peter têm a mesma avó materna&quot;</a></h3>
+<p>Usando as constantes \( j \) para John, \( p \) para Peter e os seguintes predicados:</p>
+<pre><code>mother(x, y) - x é mãe de y
+older(x, y) - x é mais velhor que y
+</code></pre>
+<p>Podemos escrever as expressões anteriores:</p>
+<p>\[ \forall_x. \forall_y. mother(x, y)\rightarrow older(x, y) \]
+\[ \forall_{x, y, u, v}. mother(x, y) \wedge mother(y, j) \wedge mother(u, v) \wedge mother(v, p)
+\rightarrow x = u \]</p>
+<p>De forma a simplificar a expressão, podemos utilizar uma função ao invés de uma relação para o caso da mãe. Assim, seja \( m(y) \) mãe de \( y \):</p>
+<p>\[ \forall_x.older(m(x), x) \]
+\[ m(m(j)) = m(m(p)) \]</p>
+<h2 id="variáveis-livres-e-vinculadas"><a class="header" href="#variáveis-livres-e-vinculadas">Variáveis Livres e Vinculadas</a></h2>
+<ul>
+<li>As <strong>variáveis livres</strong> de uma fórmula \( \phi \) são as variáveis que ocorram em \( \phi \) e que não contêm quantificadores. \( FV(\phi) \) denota o conjunto de variáveis livres que ocorrem em \( \phi \);</li>
+<li>As <strong>variáveis vinculadas</strong> de uma fórmula \( \phi \) são as variáveis que ocorrem \( \phi \) e que contêm quantificadores. \( BV(\phi) \) denota o conjunto de variáveis vinculadas presentes em \( \phi \);</li>
+<li>Uma dada variável pode conter ocorrências livres e vinculadas na mesma fórmula;</li>
+<li>Uma fórmula diz-se fechada se não tiver qualquer variável livre;</li>
+<li>Se \( FV(\phi) = {x_1, ..., x_n} \) então:
+<ul>
+<li>o seu <em>universal closure</em> é \( \forall_{x_{1}}, \cdots, \forall_{x_{n}}.\phi \)</li>
+<li>o seu <em>existential closure</em> é \( \exists_{x{<em>1}},\cdots, \exists</em>{x_{n}}.\phi \)</li>
+</ul>
+</li>
+</ul>
+<h2 id="substituição-1"><a class="header" href="#substituição-1">Substituição</a></h2>
+<ul>
+<li>Definimos \( u[t/x] \) como o termo obtido por substituir todas as ocorrências da variável \( x \) em \( u \) por \( t \);</li>
+<li>Definimos \( \phi[t/x] \) como a fórmula obtida por substituir todas as ocorrências <strong>livres</strong> da variável \( x \) em \( \phi \) pot \( t \).</li>
+</ul>
+<p>Deve-se ter bastante cuidado a mexer com substituições, pois, facilmente, podem obter-se resultados inesperados.</p>
+<h2 id="semântica"><a class="header" href="#semântica">Semântica</a></h2>
+<h3 id="v-structure"><a class="header" href="#v-structure"><em>V-Structure</em></a></h3>
+<p>Uma \( \mathcal{V} \)-<em>Structure</em> \( \mathcal{M} \) é um par \( \mathcal{M} = (D, I) \) em que \( D \) é um conjunto não vazio chamado <strong>domínio de interpretação</strong> e \( I \) é uma <strong>função de interpretação</strong> que designa constantes, funções e predicados em D para símbolos de \( \mathcal{V} \):</p>
+<ul>
+<li>Para cada símbolo constante \( c \in \mathcal{C} \), a interpretação de \( c \) é a constante \( I(c) \in D \);</li>
+<li>Para cada \( f \in \mathcal{F} \), a interpretação de \( f \) é a função \( I(f): D^{ar(f)}\rightarrow D \);</li>
+<li>Para cada \( P \in \mathcal{P} \), a interpretação de \( \mathcal{P} \) é a função \( I(P): D^{ar(P)} \rightarrow {0,1} \). Em particular, símbolos de predicados \( 0-ários \)
+são interpretados como valores verdadeiros.</li>
+</ul>
+<p>A isto é ainda dado o nome de <em>models</em> de \( \mathcal{V} \).</p>
+<h3 id="assignment"><a class="header" href="#assignment"><em>Assignment</em></a></h3>
+<p>Um <em>assignment</em> para um domínio \( D \) é uma função \( \alpha:\mathcal{X}\rightarrow D \).</p>
+<p>Denota-se \( \alpha[x\mapsto a] \) o <em>assignment</em> que mapeia \( x \) para \( a \) e qualquer outra variável \( y \) para \( \alpha(y) \).</p>
+<h3 id="validade-e-satisfabilidade"><a class="header" href="#validade-e-satisfabilidade">Validade e Satisfabilidade</a></h3>
+<p>Uma fórmula \( \phi \) diz-se:</p>
+<ul>
+<li><strong>válida</strong> sse \( \mathcal{M}, \alpha \models \phi \) se verifica para toda a estrutura \( \mathcal{M} \) e dá <em>assign</em> de \( \alpha \). Uma fórmula válida é chamada de <strong>tautologia</strong>. Escrevemos \( \models \phi \);</li>
+<li><strong>satisfazível</strong> sse existe alguma estrutura \( \mathcal{M} \) e algum <em>assignment</em> de \( \alpha \) tais que dado \( \mathcal{M} \), verifica-se \( \alpha \models \phi \);</li>
+<li><strong>insatisfazível</strong> sse não é satisfazível. A isto chama-se <strong>contradição</strong>;</li>
+<li><strong>refutável</strong> sse não é válida.</li>
+</ul>
+<h3 id="consistência-1"><a class="header" href="#consistência-1">Consistência</a></h3>
+<p>Um conjunto \( \Gamma \) é consistente ou satisfazível sse existe um modelo \( \mathcal{M} \) e um <em>assignment</em> \( \alpha \) tais que \( \mathcal{M}, \alpha \models \phi \) verifica-se para todo o \( \phi \in \Gamma \).</p>
+<h3 id="substituição-2"><a class="header" href="#substituição-2">Substituição</a></h3>
+<ul>
+<li>Uma fórmula \( \psi \) diz-se subfórmula de \( \phi \) se ocorrer sintaticamente em \( \phi \);</li>
+<li>Uma fórmula \( \psi \) é uma subfórmula estrita de \( \phi \) se \( \psi \) é uma subfórmula de \( \phi \) e \( \psi \neq \phi \)</li>
+</ul>
+<h2 id="decidibilidade-1"><a class="header" href="#decidibilidade-1">Decidibilidade</a></h2>
+<p><strong>Problemas de Decisão</strong>:</p>
+<ul>
+<li><strong>Problema da Validade</strong>: &quot;\( \phi \) é válido?&quot;;</li>
+<li><strong>Problema da Satisfabilidade</strong>: &quot;\( \phi \) é satisfazível?&quot;;</li>
+<li><strong>Problema da Consequência</strong>: &quot;\( \psi \) é uma consequência de \( \phi \)?&quot;;</li>
+<li><strong>Problema da Equivalência</strong>: &quot;\( \phi \) e \( \psi \) são equivalentes?&quot;</li>
+</ul>
+<p>Estes são, de certa forma, variações do mesmo problema:</p>
+<ul>
+<li>\( \phi \) é válido <strong>sse</strong> \( \neg \phi \) é não satisfazível;</li>
+<li>\( \phi \models \psi \) <strong>sse</strong> \( \neg(\phi\rightarrow \psi) \) é insatisfazível;</li>
+<li>\( \phi \equiv \psi \) <strong>sse</strong> \( \phi \models \psi \) e \( \psi \models \phi \);</li>
+<li>\( \phi \) é satisfazível <strong>sse</strong> \( \neg \phi \) é não válido.</li>
+</ul>
+<p>Uma solução para um problema de decidibilidade é um programa que recebe instâncias do problema como <em>input</em> e termina <strong>sempre</strong> produzindo um <em>output</em> &quot;sim&quot; ou &quot;não&quot; correto.</p>
+<h3 id="semi-decibilidade"><a class="header" href="#semi-decibilidade">Semi-decibilidade</a></h3>
+<p>Um problema de decisão é semi-decidível se existe um procedimento que, dado um input:</p>
+<ul>
+<li>Pára e responde &quot;sim&quot; <strong>sse</strong> &quot;sim&quot; é a resposta correta;</li>
+<li>Pára e responde &quot;não&quot; se &quot;não&quot; for a resposta correta;</li>
+<li>Não pára e &quot;não&quot; é a resposta correta&quot;.</li>
+</ul>
+<p>Ao contrário de um problema de decisão, este procedimente apenas pára, de forma garantida, no caso da resposta correta ser &quot;sim&quot;.</p>
+<h2 id="formas-normais"><a class="header" href="#formas-normais">Formas Normais</a></h2>
+<p>Uma fórmula de primeira ordem está numa <strong>NNF</strong> (<em>negation normal form</em>) se o conetivo da implicação não é utilizado e a negação apenas é aplicada a fórmulas atómicas.</p>
+<p>Uma fórmula está na <em>prenex form</em> se estiver na forma \( \mathcal{Q}_1x_1.\mathcal{Q}_2x_2.\cdots.\mathcal{Q}_nx_n.\psi \) em que cada \( Q_i \) é um quantificador (\( \forall \) ou \( \exists \)) e \( \psi \) é uma fórmula livre de quantificadores.</p>
+<h2 id="herbrandskolem-normal-forms"><a class="header" href="#herbrandskolem-normal-forms"><em>Herbrand</em>/<em>Skolem</em> <em>Normal Forms</em></a></h2>
+<p>Seja \( \phi \) uma fórmula de primeira oredem na forma <em>prenex normal</em>:</p>
+<ul>
+<li>A <em>Herbrandization</em> de \( \phi \) (\( \phi^H \)) é a fórmula existencial de \( \phi \) que se obtém após aplicar de forma repetida e exaustiva a seguinte transformação:</li>
+</ul>
+<p>\[ \exists_{x_1},\cdots,x_n.\forall_y.\psi \rightsquigarrow \exists_{x_1},\cdots,x_n.\psi[f(x_1,\cdots,x_n)/y] \]</p>
+<ul>
+<li>A <em>Skolemization</em> de \( \phi \) (\( \phi^S \)) é a fórmula universal obtida a partir da aplicação repetida da transformação:</li>
+</ul>
+<p>\[ \forall{x_1},\cdots,x_n.\exists_y.\psi \rightsquigarrow \forall_{x_1},\cdots,x_n.\psi[f(x_1,\cdots,x_n)/y] \]</p>
+<p>Uma fórmula \( \phi \) e a sua <em>Herbrandization/Skolemization</em> não são logicamente equivalentes.</p>
+<ul>
+<li>\( \phi \) é válida <strong>sse</strong> a sua <em>Herbrandization</em> \( \phi^H \) é válida;</li>
+<li>\( \phi \) é satisfazível <strong>sse</strong> a sua <em>Skolemization</em> \( \phi^S \) é satisfazível.</li>
+</ul>
+<h2 id="fol-com-igualdade"><a class="header" href="#fol-com-igualdade">FOL com igualdade</a></h2>
+<p>Esta abordagem considera a igualdade como um símbolo lógico de interpretação fixa.</p>
+<p>O símbolo de igualdade é interpretado como a relação de igualdade no domínio da interpretação. Assim, tem-se uma estrutura \( \mathcal{M}=(D, I) \) e um <em>assignment</em> \( alpha: \mathcal{X}\rightarrow D \), tal que:</p>
+<p>\[ \mathcal{M}, \alpha \models t_1 = t_2\ iff\ \alpha_{\mathcal{M}}(t_1)\ and\ \alpha_{\mathcal{M}}(t_2)\ são\ o\ mesmo\ elemento\ de\ D \]</p>
+<h2 id="many-sorted-fol"><a class="header" href="#many-sorted-fol"><em>Many-sorted</em> FOL</a></h2>
+<ul>
+<li>
+<p>Permite a coexistência de diferentes domínios de elementos na mesma <em>framework</em>.</p>
+</li>
+<li>
+<p>É composta por conjunto de <em>sorts</em>, um conjunto de símbolos de funções e um conjunto de símbolos de predicados.</p>
+<ul>
+<li>Cada símbolo de função \( f \) tem associado um tipo da forma \( S_1 \times \cdots \times S_{ar(f)} \rightarrow S \), em que S são <em>sorts</em>;</li>
+<li>Cada símbolo de predicado \( P \) tem associado um tipo da forma \( S_1 \times \cdots \times S_{ar(P)} \);</li>
+<li>Cada variável tem a si associado um <em>sort</em>.</li>
+</ul>
+</li>
+<li>
+<p>A formação dos termos e das fórmulas é feito respeitando os <em>sorts</em>;</p>
+</li>
+<li>
+<p>O domínio do discurso de cada estrutura de um vocabulário <em>many-sorted</em> é fragmentado em diferentes <em>subsets</em>, um para cada <em>sort</em>;</p>
+</li>
+<li>
+<p>A noção de <em>assignment</em> e de estrutura para um vocabulário <em>many-sorted</em> e a sua interpretação de termos e fórmulas estão definidas da fórmula expectável.</p>
+</li>
+</ul>
+<h2 id="smt-solvers"><a class="header" href="#smt-solvers"><em>SMT Solvers</em></a></h2>
+<p>O problema SMT (<em>Satisfability Modulo Theories</em>) é a variação do SAT para a lógica de primeira ordem com a interpretação dos símbolos restrita a um conjunto de teorias específicas.</p>
+<h2 id="modelos-de-domínio"><a class="header" href="#modelos-de-domínio">Modelos de Domínio</a></h2>
+<p>Um modelo de domínio é um modelo concetual de um sistema que descreve as diversas entidades involvidas no sistema e nas suas relações.</p>
+<p><img src="images/modeldomain.png" alt="image Modelo de Domínio" /></p>
+<ul>
+<li><strong>Entidades</strong> são representadas por caixas;</li>
+<li><strong>Relações</strong> entre entidades são denotadas por arcos com:
+<ul>
+<li>O nome da relação/associação;</li>
+<li>A direção de leitura (indicada por uma seta);</li>
+<li>A sua multiplicidade (anotada na ponta dos arcos).</li>
+</ul>
+</li>
+<li><strong>Anotações</strong> com restrições indicadas, de modo informal, em caixas que podem aparecer no diagrama.</li>
+</ul>
+<h3 id="formalizar-um-modelo-de-domínio"><a class="header" href="#formalizar-um-modelo-de-domínio">Formalizar um Modelo de Domínio</a></h3>
+<ul>
+<li>Começa-se por estabelecer a linguagem lógica que iremos utilizar, isto é, o vocabulário da linguagem:
+<ul>
+<li>Um <strong>predicado unário para cada entidade</strong> (irão funcionar como os &quot;tipos&quot; da entidade não domínio não-tipado);</li>
+<li>Um <strong>predicado para cada associação</strong>, exceto especializações (que serão codificados em fórmulas que estabelecem o tipo de especialização);</li>
+<li>Uma <strong>constante</strong> para cada entidade pertencente a um tipo enumerado.</li>
+</ul>
+</li>
+<li>Em seguida, escrevemos o conjunto de fórmulas que irão descrever o sistema. Estas fórmulas são de uma natureza diferente:
+<ul>
+<li>Codificação da relação de especialização (pode ser um subconjunto ou membros da relação, dependendo dos casos);</li>
+<li>Partição do universo de discurso com os tipos das entidades;</li>
+<li>Disjunção das entidades de especialização;</li>
+<li>Tipar as associações;</li>
+<li>Restrições de multiplicidade em associações;</li>
+<li>Restrições anotadas de forma informal.</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="teórica-04"><a class="header" href="#teórica-04">Teórica 04</a></h1>
+<p>Opa, isto foi só apresentar exemplos, a teoria foi a dada na aula anterior...</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="teórica-05"><a class="header" href="#teórica-05">Teórica 05</a></h1>
+<h2 id="design-estrutural-com-alloy"><a class="header" href="#design-estrutural-com-alloy"><em>Design</em> Estrutural com Alloy</a></h2>
+<h3 id="estruturas-de-software"><a class="header" href="#estruturas-de-software">Estruturas de <em>Software</em></a></h3>
+<ul>
+<li>Estruturas de Dados;</li>
+<li>Esquemas de Bases de Dados;</li>
+<li>Arquiteturas;</li>
+<li>Topologias de Rede;</li>
+<li>Ontologias;</li>
+<li>Modelos de Domínio.</li>
+</ul>
+<h3 id="design-estrutural"><a class="header" href="#design-estrutural"><em>Design</em> Estrutural</a></h3>
+<p>Queremos perceber as entidades que temos e quais os seus relacionamentos, os requisitos do sistemas e, por fim, explorar diversas alternativas de <em>design</em>.</p>
+<ul>
+<li>Se tivermos uma maneira rápida de testar diversas abordagens pode ser muito útil!
+<ul>
+<li>Ajuda a encontrar a solução ideal.</li>
+</ul>
+</li>
+</ul>
+<p><code>Alloy</code> é uma ferramenta de conceção de <em>software</em>.</p>
+<h3 id="modelação-de-domínio-com-uml"><a class="header" href="#modelação-de-domínio-com-uml">Modelação de domínio com UML</a></h3>
+<p>A modelação com UML apresenta algumas vulnerabilidades, entre as quais:</p>
+<ul>
+<li>Como validar o modelo?</li>
+<li>Existem algumas restrições redundantes ou esquecidas?</li>
+<li>O que é que as restrições querem mesmo dizer?</li>
+<li>As restrições apresentam todas as propriedades expectáveis do sistema?</li>
+</ul>
+<p>Ou seja, as ferramentas UML não são capazes de nos dizer se o que temos é suficiente ou impossível...</p>
+<p>Logo, era bom termos algo que pudesse combater este ponto e a utilização de <code>Alloy</code> deve ser capaz de ajudar nisso.</p>
+<p>Atualmente, a abstração revela-se como a <em>skill</em> mais importante para modelar.</p>
+<h3 id="design-de-software-com-alloy"><a class="header" href="#design-de-software-com-alloy"><em>Design</em> de <em>Software</em> com <em>Alloy</em></a></h3>
+<ul>
+<li>É uma linguagem de modelação formal;</li>
+<li>Pode ser utilizada para declarar estruturas ou especificar restrições;</li>
+<li>Os modelos podem ser analisados automaticamente;</li>
+<li>Desenhada para abstração.</li>
+</ul>
+<h3 id="modelação-de-domínio-com-alloy"><a class="header" href="#modelação-de-domínio-com-alloy">Modelação de Domínio com <em>Alloy</em></a></h3>
+<h4 id="assinaturas"><a class="header" href="#assinaturas">Assinaturas</a></h4>
+<ul>
+<li>São conjuntos;</li>
+<li>Inabitadas por átomos de um universo finito do discurso;</li>
+<li>Assinaturas <em>top-level</em> são disjuntas;</li>
+<li>Uma assinatura de <em>extension</em> é um subconjunto do assinatura &quot;parente&quot;;</li>
+</ul>
+<h5 id="entidades--assinaturas"><a class="header" href="#entidades--assinaturas">Entidades = Assinaturas</a></h5>
+<pre><code>sig Object {}
+sig Entry {}
+sig Name {}
+</code></pre>
+<h5 id="is-a--extensão"><a class="header" href="#is-a--extensão">&quot;<em>Is a</em>&quot; = Extensão</a></h5>
+<pre><code>sig Dir extends Object {}
+sig File extends Object {}
+sig Root extends Dir {}
+</code></pre>
+<h4 id="campos"><a class="header" href="#campos">Campos</a></h4>
+<ul>
+<li>São relacionamentos;</li>
+<li>Inabitada por conjuntos de tuplos de átomos do universo;</li>
+<li>São subconjuntos do produto cartesiano da fonte ou das assinaturas do tipo alvo;</li>
+<li>Todos os tuplos num campos têm a mesma aridade.</li>
+</ul>
+<h5 id="relações--campos"><a class="header" href="#relações--campos">Relações = Campos</a></h5>
+<pre><code>sig Dir extends Object {
+  entries : set Entry
+}
+
+sig Entry {
+  object : set Object,
+  name : set Name
+}
+</code></pre>
+<h4 id="restrições-de-multiplicidade"><a class="header" href="#restrições-de-multiplicidade">Restrições de Multiplicidade</a></h4>
+<pre><code>fact { R in A m -&gt; m B}
+</code></pre>
+<ul>
+<li>A multiplicidade por <em>default</em> é <em>set</em>;</li>
+<li>A multiplicidade alvo pode, alternativamente, especificada na declaração;</li>
+<li>Nas declarações de um campo, a multiplicidade por <em>default</em> é <em>one</em>.</li>
+</ul>
+<table><thead><tr><th>Alloy</th><th>UML</th></tr></thead><tbody>
+<tr><td>set</td><td>0..*</td></tr>
+<tr><td>lone</td><td>0..1</td></tr>
+<tr><td>some</td><td>1..*</td></tr>
+<tr><td>one</td><td>1</td></tr>
+</tbody></table>
+<pre><code>sig Dir extends Object {
+  entries : set Entry
+}
+
+sig Entry {
+  object : set Object,
+  name : set Name
+}
+
+fact Multiplicities {
+  entries in Dir one -&gt; set Entry
+  object in Entry set -&gt; one Object
+  name in Entry set -&gt; one Name
+}
+</code></pre>
+<h5 id="factos"><a class="header" href="#factos">Factos</a></h5>
+<ul>
+<li>Especificam assunções;</li>
+</ul>
+<pre><code>fact {x}
+
+</code></pre>
+<ul>
+<li>Podem ser nomeados;</li>
+</ul>
+<pre><code>fact Name {x}
+</code></pre>
+<ul>
+<li>Podem ter múltiplas restrições, uma por linha.</li>
+</ul>
+<pre><code>fact{
+  x
+  y
+}
+</code></pre>
+<h4 id="bestiary"><a class="header" href="#bestiary"><em>Bestiary</em></a></h4>
+<pre><code>R in A set -&gt; some B      // R é inteiro
+R in A set -&gt; lone B      // R é simples
+R in A some -&gt; set B      // R é sobrejetiva
+R in A lone -&gt; set B      // R é injetiva
+
+R in A lone -&gt; some B     // R é uma representação
+R in A some -&gt; lone B     // R é abstração
+
+R in A set -&gt; one B       // R é uma função
+R in A lone -&gt; one B      // R é uma injeção
+R in A some -&gt; one B      // R é uma sobrejeção
+
+R in A one -&gt; one B       // R é uma bijeção
+</code></pre>
+<h3 id="análise"><a class="header" href="#análise">Análise</a></h3>
+<h4 id="comandos"><a class="header" href="#comandos">Comandos</a></h4>
+<ul>
+<li>O <em>Alloy</em> tem 2 tipos de comandos de análise:
+<ul>
+<li><code>run { x }</code> pede um exemplo que satisfaça <code>x</code>;</li>
+<li><code>check { x }</code> pede um contra-exemplo que refute a asserção <code>x</code>.</li>
+</ul>
+</li>
+<li>Podem ser nomeados e ter diversas restrições, uma por linha;</li>
+<li>No <em>visualizer</em> é possível pedir mais exemplos ou contraexemplos ao premir o botão <em>New</em>.</li>
+</ul>
+<h4 id="instâncias"><a class="header" href="#instâncias">Instâncias</a></h4>
+<ul>
+<li>Tanto os exemplos como os contraexemplos são instâncias do modelo;</li>
+<li>Uma instância é uma validação para todos as assinaturas e campos;</li>
+<li>Uma instância deverá satisfazer todas as declarações e todos os factos;</li>
+<li>Numa instância &quot;tudo é uma relação&quot;:
+<ul>
+<li>Assinaturas são relações unárias (conjuntos de tuplos unários);</li>
+<li>Contantes são relações unárias <em>singleton</em> (conjuntos com um tuplo unário).</li>
+</ul>
+</li>
+</ul>
+<h4 id="scopes"><a class="header" href="#scopes"><em>Scopes</em></a></h4>
+<ul>
+<li>De forma a garantir decidibilidade, os comandos têm um <em>scope</em>;</li>
+<li>O <em>scope</em> impõe um limite no tamanho de um universo finito que o <em>Analyzer</em> irá explorar de forma exaustiva;</li>
+<li>O <em>scope</em> por <em>default</em> impõe o limite de 3 átomos por assinatura <em>top-level</em>;</li>
+<li>A <em>keyword</em> <code>for</code> pode ser utilizado para especificar diferentes <em>scopes</em> para assinatures <em>top-level</em>;</li>
+<li>A <em>keyword</em> <code>but</code> pode ser utilizado para epecificar diferentes <em>scopes</em> para assinaturas específicas.</li>
+</ul>
+<h5 id="the-small-scope-hypothesis"><a class="header" href="#the-small-scope-hypothesis"><em>The small scope hypothesis</em></a></h5>
+<ul>
+<li>Se o <code>run {x}</code> retornar uma instância, então dizemos que <code>x</code> é consistente, caso contrário, dizemos que <code>x</code> <strong>pode</strong> ser inconsistente;
+<ul>
+<li>Poderá ser consistente num maior <em>scope</em>...</li>
+</ul>
+</li>
+<li>Se o <code>check {x}</code> retornar uma instância, então dizemos que <code>x</code> é inválido, caso contrário, dizemos que <code>x</code> <strong>pode</strong> ser inválido.
+<ul>
+<li>Poderá ser inválido num maior <em>scope</em>...</li>
+</ul>
+</li>
+</ul>
+<p>No entanto, existe uma teoria (<em>The small scope hypothesis</em>) que defende que grande parte dos <em>bugs</em> podem ser detetados em pequenos exemplos, pelo que isto não deve ser um problema muito grave.</p>
+<h3 id="Átomos"><a class="header" href="#Átomos">Átomos</a></h3>
+<ul>
+<li>O universo de discurso contém átomos;</li>
+<li>Átomos não são interpretados (não têm semântica);</li>
+<li>São nomeados de forma automática de acordo com a sua respetiva assinatura;</li>
+<li>Duas instâncias dizem-se isomórficas (ou simétricas) se forem iguais e apenas os nomes dos átomos mudarem.
+<ul>
+<li>A análise implementa um processo que evita isto.</li>
+</ul>
+</li>
+</ul>
+<h3 id="assinaturas-abstratas"><a class="header" href="#assinaturas-abstratas">Assinaturas Abstratas</a></h3>
+<ul>
+<li>Todos os átomos em assinaturas abstratas pertencem a uma das suas extensões.</li>
+</ul>
+<pre><code>abstract sig Object {}
+sig Dir extends Object {
+  entries : set Entry
+}
+sig File extends Object {}
+</code></pre>
+<h3 id="multiplicidades-de-assinaturas"><a class="header" href="#multiplicidades-de-assinaturas">Multiplicidades de Assinaturas</a></h3>
+<ul>
+<li>Também se podem utilizar multiplicidades em declarações de assinaturas;</li>
+<li>Em particular, <code>one sig</code> denota uma constante.</li>
+</ul>
+<pre><code>one sig Root extends Dir {}
+</code></pre>
+<h3 id="asserções"><a class="header" href="#asserções">Asserções</a></h3>
+<ul>
+<li>São restrições nomeadas para serem verificadas.</li>
+</ul>
+<pre><code>assert NoPartitions {
+  // Qualquer coisa
+}
+
+check NoPartitions
+</code></pre>
+<h2 id="lógica-relacional"><a class="header" href="#lógica-relacional">Lógica Relacional</a></h2>
+<p>Para utilizarmos o <code>Alloy</code> temos de utilizar lógica relacional, pois com FOL as expressões seriam demasiado complexas e extensas.</p>
+<p>A Lógica Relacional estende o FOL com:</p>
+<ul>
+<li>Fórmulas atómicas derivadas, nomeadamente verificações de cardinalidade;</li>
+<li>Operações derivadas para combinar predicados (relações) em predicados mais complexos;</li>
+<li><em>Closures</em> transitivas e reflexivas que não podem ser expressas em FOL.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+    </body>
+</html>
